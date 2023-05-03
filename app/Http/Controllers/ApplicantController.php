@@ -18,7 +18,8 @@ class ApplicantController extends Controller
 
     public function store_apply(Request $request, Job $job)
     {
-        $job_id = $job->id;
+        // $job_id = $job->id;
+        $job_id = $job->id ;
         $user_id = $job->user->id;
 
         $request->validate([
@@ -47,7 +48,7 @@ class ApplicantController extends Controller
         ]);
 
         if ($applicant == true) {
-            Applied_job::create([
+            Applied_job::create([   
                 'applicant_id' => $applicant->id,
                 'job_id' => $job_id,
                 'user_id' => $user_id

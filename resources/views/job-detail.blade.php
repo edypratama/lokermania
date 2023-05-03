@@ -115,6 +115,71 @@
             </div>
         </div>
 
+         <!-- modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" style="max-width: 1126px;">
+             <div class="modal-content">
+                 <div class="modal-body">
+                     <form action=" {{ route('store_apply', $job) }} " method="post"
+                         enctype="multipart/form-data">
+                         @csrf
+                         @method('patch')
+                         <div class="row">
+                             <div class="col">
+                                 <label for="name">Nama lengkap</label><br>
+                                 <input class="border w-100 rounded px-3 py-2 mt-1" type="text" name="name" id="name">
+                             </div>
+                             <div class="col">
+                                 <label for="Umur">Umur</label><br>
+                                 <input class="border w-100 rounded px-3 py-2 mt-1" name="age" type="number" id="Umur">
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col">
+                                 <label for="email">Email</label><br>
+                                 <input class="border w-100 rounded px-3 py-2 mt-1" name="email" type="email" id="email">
+                             </div>
+                             <div class="col">
+                                 <label for="address">Alamat</label><br>
+                                 <input class="border w-100 rounded px-3 py-2 mt-1" name="address" type="text" id="address">
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col">
+                                 <label for="phone">No Hp</label><br>
+                                 <input class="border w-100 rounded px-3 py-2 mt-1" name="phone" type="text" id="phone">
+                             </div>
+                             <div class="col mt-3">
+                                 <label for="cv">Upload CV</label>
+                                 <input type="file" class="form-control" name="cv" id="cv">
+                             </div>
+                         </div>
+                         <div class="form-check">
+                             <input class="form-check-input" type="radio" name="gender" value="male"
+                                 id="flexRadioDefault1">
+                             <label class="form-check-label" for="flexRadioDefault1">
+                                 Male
+                             </label>
+                         </div>
+                         <div class="form-check">
+                             <input class="form-check-input" type="radio" name="gender" value="female"
+                                 id="flexRadioDefault2" checked>
+                             <label class="form-check-label" for="flexRadioDefault2">
+                                 Female
+                             </label>
+                         </div>
+                 </div>
+                 <div class="modal-footer d-flex justify-content-start" style="border: none;">
+                     <button type="submit" name="submit" class="btn btn-primary rounded-pill"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Kirim</button>
+                     <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal"
+                     aria-label="Close">Batal</button>
+                 </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+
         <!-- content -->
         <div class="container-fluid vh-100">
             <div class="row h-100">
@@ -164,10 +229,10 @@
                     <div class="container">
                         <h4 class="text-center pt-5 fw-bolder">Lowongan Pekerjaan Lain Dari {{ $job->user->name }}
                         </h4>
-                        @foreach ($jobs as $job)
+                        @foreach ($jobs as $data)
                             <div class="d-flex justify-content-between align-items-center mt-5">
-                                <p class="p-0"> {{ $job->title }} </p>
-                                <form action=" {{ route('job_detail', $job) }} " method="get">
+                                <p class="p-0"> {{ $data->title }} </p>
+                                <form action=" {{ route('job_detail', $data) }} " method="get">
                                     <button class="btn rounded-pill px-3 btn-primary" style="background: #9747FF"> <small>Detail</small> </button>
                                 </form>
                             </div>
@@ -177,70 +242,6 @@
             </div>
         </div>
 
-        <!-- modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="max-width: 1126px;">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <form action=" {{ route('store_apply', $job) }} " method="post"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('patch')
-                            <div class="row">
-                                <div class="col">
-                                    <label for="name">Nama lengkap</label><br>
-                                    <input class="border w-100 rounded px-3 py-2 mt-1" type="text" name="name" id="name">
-                                </div>
-                                <div class="col">
-                                    <label for="Umur">Umur</label><br>
-                                    <input class="border w-100 rounded px-3 py-2 mt-1" name="age" type="number" id="Umur">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="email">Email</label><br>
-                                    <input class="border w-100 rounded px-3 py-2 mt-1" name="email" type="email" id="email">
-                                </div>
-                                <div class="col">
-                                    <label for="address">Alamat</label><br>
-                                    <input class="border w-100 rounded px-3 py-2 mt-1" name="address" type="text" id="address">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="phone">No Hp</label><br>
-                                    <input class="border w-100 rounded px-3 py-2 mt-1" name="phone" type="text" id="phone">
-                                </div>
-                                <div class="col mt-3">
-                                    <label for="cv">Upload CV</label>
-                                    <input type="file" class="form-control" name="cv" id="cv">
-                                </div>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" value="male"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Male
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" value="female"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Female
-                                </label>
-                            </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-start" style="border: none;">
-                        <button type="submit" name="submit" class="btn btn-primary rounded-pill"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Kirim</button>
-                        <button type="button" class="btn btn-primary rounded-pill" data-bs-dismiss="modal"
-                        aria-label="Close">Batal</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <!-- modal 2 -->
         <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
