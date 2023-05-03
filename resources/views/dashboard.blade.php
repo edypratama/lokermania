@@ -135,8 +135,10 @@
                         </form>
                     </div>
                     <div class="modal-footer d-flex justify-content-start" style="border: none;">
-                        <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+                        <form action=" {{ route( 'SendEmail', $item->applicant->id)  }} " method="get">
+                            <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
                             data-bs-toggle="modal">Kirim Email</button>
+                        </form>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Hapus
                             Pelamar</button>
                     </div>

@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile/edit', [UserController::class, 'edit_profile'])->name('store_profile');
     Route::post('/profile/delete', [UserController::class, 'delete_profile'])->name('delete_profile');
     Route::get('/dashboard', [Applied_jobController::class, 'show_applied'])->name('show_applicant');
+    Route::get('/dashboard/send/{applicant}', [Applied_jobController::class, 'SendEmail'])->name('SendEmail');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/create-jobs', [JobController::class, 'create'])->name('create_job');
     Route::post('/create-jobs', [JobController::class, 'store'])->name('store_job');
