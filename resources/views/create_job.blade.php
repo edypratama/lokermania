@@ -114,9 +114,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="qualification">Kualifikasi</label> <br />
-                        <input type="number" class="border col-sm-12 col-lg-2 rounded px-3 py-2 mt-1"
-                            id="qualification" placeholder="3">
+                        <label for="qualification">Kualifikasi</label>
                     </div>
                     <div class="col">
                         <label for="graduate">Lulusan</label>
@@ -125,8 +123,20 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col">
+                    <div class="col overflow-y-scroll">
                         <div class="row">
+                            <div class="col-12">
+                                <input type="text" class="border w-100 rounded px-3 py-2 mt-1"
+                                    placeholder="kulaifikasi" name="requirements[]">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="border w-100 rounded px-3 py-2 mt-1"
+                                    placeholder="kulaifikasi" name="requirements[]">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="border w-100 rounded px-3 py-2 mt-1"
+                                    placeholder="kulaifikasi" name="requirements[]">
+                            </div>
                             <div class="col-12">
                                 <input type="text" class="border w-100 rounded px-3 py-2 mt-1"
                                     placeholder="kulaifikasi" name="requirements[]">
